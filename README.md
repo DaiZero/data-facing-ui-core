@@ -1,4 +1,4 @@
-# data-facing-core
+# data-facing-ui-core
 
 > generated from [alvarosaburido/vitesome](https://github.com/alvarosaburido/vitesome)
 
@@ -13,3 +13,5 @@
 - 主要开发语言：TypeScript
 - 样式库：[windicss](https://github.com/windicss/windicss)
 - 图标库：[iconify](https://iconify.design/)
+- [vue.draggable.next](https://github.com/SortableJS/vue.draggable.next)
+- [element-plus](https://element-plus.gitee.io/zh-CN/)
