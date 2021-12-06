@@ -1,5 +1,6 @@
 import type { DfComponentBaseProps } from './BaseProps'
 import type { CSSProperties } from 'vue'
+import { Action } from './Action'
 
 
 // 组件模块
@@ -13,7 +14,7 @@ export interface ComponentModules {
 /**
  * @description 组件属性
  */
- export interface DfComponentBlockData {
+ export interface DfComponentData {
   /** 组件id 时间戳, 组件唯一标识 */
   _vid: string
   /** 组件所属的模块（基础组件、容器组件） */
@@ -47,28 +48,6 @@ export interface ComponentModules {
   [prop: string]: any
 }
 
-/**
- * @description 组件动作事件处理
- */
- export interface ActionHandle {
-  key: string
-  name: string
-  link: string[]
-  data?: {
-    bind?: string
-    recv?: string
-  }
-}
-/**
- * @description 组件动作
- */
-export interface Action {
-  key: string
-  name: string
-  event: string
-  handle: ActionHandle[]
-}
-
 export interface DfBaseComponent {
   /** 组件name */
   key: string
@@ -85,7 +64,7 @@ export interface DfBaseComponent {
     props: any
     model: any
     styles: CSSProperties
-    block: DfComponentBlockData
+    block: DfComponentData
     custom: Record<string, any>
   }) => () => JSX.Element
   /** 组件是否可以被拖拽 */
