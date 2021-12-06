@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="design-left-side"></div>
+    <div class="design-left-side">
+      design-left-side
+    </div>
   </div>
 </template>
 

@@ -4,6 +4,7 @@
 <div class="design-right-side__header">
 </div>
 <div class="design-right-side__content">
+  design-right-side__content
 </div>
 </div>
 </template>
