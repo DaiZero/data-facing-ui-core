@@ -15,101 +15,101 @@ export enum DfComponentTypeEnum {
   /** 模型绑定选择器 */
   modelBind = 'ModelBind',
   /** 可拖拽项 */
-  crossSortable = 'CrossSortable'
+  crossSortable = 'CrossSortable',
 }
 
 export type DfComponentBaseProps = {
-  type: DfComponentTypeEnum
+  type: DfComponentTypeEnum;
   /** 表单项标签名称 */
-  label: string
+  label: string;
   /** 表单项提示说明 */
-  tips?: string
+  tips?: string;
   /** 表单域标签的位置 */
-  labelPosition?: string
+  labelPosition?: string;
   /** 表单项默认值 */
-  defaultValue?: any
+  defaultValue?: any;
 } & {
   /** 可选项 */
-  options?: DfSelectOptions
+  options?: DfSelectOptions;
   /** 是否可以多选 */
-  multiple?: boolean
+  multiple?: boolean;
   /** 项属性配置 */
-  showItemPropsConfig?: boolean
+  showItemPropsConfig?: boolean;
 } & {
-  max?: number
-  min?: number
+  max?: number;
+  min?: number;
 } & {
-  table?: DfTableOption
-}
+  table?: DfTableOption;
+};
 
 /*---------------------------------------modelBind-------------------------------------------*/
 interface EditorModelBindProp {
-  label: string
-  defaultValue?: any
-  tips?: string
+  label: string;
+  defaultValue?: any;
+  tips?: string;
 }
 
 export function createEditorModelBindProp({
   label = '字段绑定',
   defaultValue,
-  tips
+  tips,
 }: EditorModelBindProp): DfComponentBaseProps {
   return {
     type: DfComponentTypeEnum.modelBind,
     label,
     tips,
-    defaultValue
-  }
+    defaultValue,
+  };
 }
 
 /*---------------------------------------switch-------------------------------------------*/
 interface EditorSwitchProp {
-  label: string
-  defaultValue?: boolean
-  tips?: string
+  label: string;
+  defaultValue?: boolean;
+  tips?: string;
 }
 
 export function createEditorSwitchProp({
   label,
   defaultValue,
-  tips
+  tips,
 }: EditorSwitchProp): DfComponentBaseProps {
   return {
     type: DfComponentTypeEnum.switch,
     label,
     tips,
-    defaultValue
-  }
+    defaultValue,
+  };
 }
 
 /*---------------------------------------input-------------------------------------------*/
 
 interface DfInputProp {
-  label: string
-  defaultValue?: any
-  tips?: string
+  label: string;
+  defaultValue?: any;
+  tips?: string;
 }
 
 export function createDfInputProp({
   label,
   defaultValue,
-  tips
+  tips,
 }: DfInputProp): DfComponentBaseProps {
   return {
     type: DfComponentTypeEnum.input,
     label,
     tips,
-    defaultValue
-  }
+    defaultValue,
+  };
 }
 /*---------------------------------------InputNumber -------------------------------------------*/
 
 interface DfInputNumberProp {
-  label: string
-  defaultValue?: any
-  tips?: string
-  max?: number
-  min?: number
+  label: string;
+  defaultValue?: any;
+  tips?: string;
+  max?: number;
+  min?: number;
 }
 
 export function createDfInputNumberProp({
@@ -117,7 +117,7 @@ export function createDfInputNumberProp({
   defaultValue,
   max,
   min,
-  tips
+  tips,
 }: DfInputNumberProp): DfComponentBaseProps {
   return {
     type: DfComponentTypeEnum.inputNumber,
@@ -125,39 +125,42 @@ export function createDfInputNumberProp({
     tips,
     max,
     min,
-    defaultValue
-  }
+    defaultValue,
+  };
 }
 
 /*---------------------------------------color-------------------------------------------*/
 
 interface DfColorProp {
-  label: string
-  defaultValue?: string
+  label: string;
+  defaultValue?: string;
 }
 
-export function createDfColorProp({ label, defaultValue }: DfColorProp): DfComponentBaseProps {
+export function createDfColorProp({
+  label,
+  defaultValue,
+}: DfColorProp): DfComponentBaseProps {
   return {
     type: DfComponentTypeEnum.color,
     label,
-    defaultValue
-  }
+    defaultValue,
+  };
 }
 
 /*---------------------------------------select-------------------------------------------*/
 
 export type DfSelectOptions = {
-  label: string
-  value: string | number | boolean | object
-  [prop: string]: any
-}[]
+  label: string;
+  value: string | number | boolean | object;
+  [prop: string]: any;
+}[];
 
 interface EditorSelectProp {
-  label: string
-  options: DfSelectOptions
-  defaultValue?: any
-  multiple?: boolean
-  tips?: string
+  label: string;
+  options: DfSelectOptions;
+  defaultValue?: any;
+  multiple?: boolean;
+  tips?: string;
 }
 
 export function createEditorSelectProp({
@@ -165,7 +168,7 @@ export function createEditorSelectProp({
   options,
   defaultValue,
   tips,
-  multiple
+  multiple,
 }: EditorSelectProp): DfComponentBaseProps {
   return {
     type: DfComponentTypeEnum.select,
@@ -173,47 +176,47 @@ export function createEditorSelectProp({
     defaultValue,
     tips,
     options,
-    multiple
-  }
+    multiple,
+  };
 }
 
 /*---------------------------------------table-------------------------------------------*/
 
 export type DfTableOption = {
   options: {
-    label: string // 列显示文本
-    field: string // 列绑定的字段
-  }[]
-  showKey: string
-}
+    label: string; // 列显示文本
+    field: string; // 列绑定的字段
+  }[];
+  showKey: string;
+};
 
 interface EditorTableProp {
-  label: string
-  option: DfTableOption
-  defaultValue?: { label: string; value: string }[]
+  label: string;
+  option: DfTableOption;
+  defaultValue?: { label: string; value: string }[];
 }
 
 export function createEditorTableProp({
   label,
   option,
-  defaultValue
+  defaultValue,
 }: EditorTableProp): DfComponentBaseProps {
   return {
     type: DfComponentTypeEnum.table,
     label,
     table: option,
-    defaultValue
-  }
+    defaultValue,
+  };
 }
 
 /*---------------------------------------DfCrossSortableProp-------------------------------------------*/
 
 interface DfCrossSortableProp {
-  label: string
-  labelPosition: 'top' | ''
-  multiple?: boolean
-  showItemPropsConfig?: boolean
-  defaultValue?: string[] | DfSelectOptions
+  label: string;
+  labelPosition: 'top' | '';
+  multiple?: boolean;
+  showItemPropsConfig?: boolean;
+  defaultValue?: string[] | DfSelectOptions;
 }
 
 export function createDfCrossSortableProp({
@@ -221,7 +224,7 @@ export function createDfCrossSortableProp({
   labelPosition,
   multiple,
   showItemPropsConfig,
-  defaultValue
+  defaultValue,
 }: DfCrossSortableProp): DfComponentBaseProps {
   return {
     type: DfComponentTypeEnum.crossSortable,
@@ -229,6 +232,6 @@ export function createDfCrossSortableProp({
     multiple,
     showItemPropsConfig,
     labelPosition,
-    defaultValue
-  }
+    defaultValue,
+  };
 }

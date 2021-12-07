@@ -1,1 +1,1 @@
-export * from './BaseProps'
+export * from './base-props'

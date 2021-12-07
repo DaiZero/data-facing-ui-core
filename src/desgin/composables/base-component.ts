@@ -1,6 +1,6 @@
-import type { DfComponentBaseProps } from './BaseProps'
+import type { DfComponentBaseProps } from './base-props'
 import type { CSSProperties } from 'vue'
-import { Action } from './Action'
+import { Action } from './action'
 
 
 // 组件模块
