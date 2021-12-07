@@ -1,5 +1,5 @@
-// 设计组件的类型
-export enum DfComponentTypeEnum {
+// 设计组件属性类型
+export enum DfComponentPropTypeEnum {
   /** 输入框 */
   input = 'input',
   /** 数字输入框 */
@@ -19,7 +19,7 @@ export enum DfComponentTypeEnum {
 }
 
 export type DfComponentBaseProps = {
-  type: DfComponentTypeEnum;
+  type: DfComponentPropTypeEnum;
   /** 表单项标签名称 */
   label: string;
   /** 表单项提示说明 */
@@ -43,19 +43,19 @@ export type DfComponentBaseProps = {
 };
 
 /*---------------------------------------modelBind-------------------------------------------*/
-interface EditorModelBindProp {
+interface DfModelBindProp {
   label: string;
   defaultValue?: any;
   tips?: string;
 }
 
-export function createEditorModelBindProp({
+export function createDfModelBindProp({
   label = '字段绑定',
   defaultValue,
   tips,
-}: EditorModelBindProp): DfComponentBaseProps {
+}: DfModelBindProp): DfComponentBaseProps {
   return {
-    type: DfComponentTypeEnum.modelBind,
+    type: DfComponentPropTypeEnum.modelBind,
     label,
     tips,
     defaultValue,
@@ -63,19 +63,19 @@ export function createEditorModelBindProp({
 }
 
 /*---------------------------------------switch-------------------------------------------*/
-interface EditorSwitchProp {
+interface DfSwitchProp {
   label: string;
   defaultValue?: boolean;
   tips?: string;
 }
 
-export function createEditorSwitchProp({
+export function createDfSwitchProp({
   label,
   defaultValue,
   tips,
-}: EditorSwitchProp): DfComponentBaseProps {
+}: DfSwitchProp): DfComponentBaseProps {
   return {
-    type: DfComponentTypeEnum.switch,
+    type: DfComponentPropTypeEnum.switch,
     label,
     tips,
     defaultValue,
@@ -96,7 +96,7 @@ export function createDfInputProp({
   tips,
 }: DfInputProp): DfComponentBaseProps {
   return {
-    type: DfComponentTypeEnum.input,
+    type: DfComponentPropTypeEnum.input,
     label,
     tips,
     defaultValue,
@@ -120,7 +120,7 @@ export function createDfInputNumberProp({
   tips,
 }: DfInputNumberProp): DfComponentBaseProps {
   return {
-    type: DfComponentTypeEnum.inputNumber,
+    type: DfComponentPropTypeEnum.inputNumber,
     label,
     tips,
     max,
@@ -141,7 +141,7 @@ export function createDfColorProp({
   defaultValue,
 }: DfColorProp): DfComponentBaseProps {
   return {
-    type: DfComponentTypeEnum.color,
+    type: DfComponentPropTypeEnum.color,
     label,
     defaultValue,
   };
@@ -155,7 +155,7 @@ export type DfSelectOptions = {
   [prop: string]: any;
 }[];
 
-interface EditorSelectProp {
+interface DfSelectProp {
   label: string;
   options: DfSelectOptions;
   defaultValue?: any;
@@ -163,15 +163,15 @@ interface EditorSelectProp {
   tips?: string;
 }
 
-export function createEditorSelectProp({
+export function createDfSelectProp({
   label,
   options,
   defaultValue,
   tips,
   multiple,
-}: EditorSelectProp): DfComponentBaseProps {
+}: DfSelectProp): DfComponentBaseProps {
   return {
-    type: DfComponentTypeEnum.select,
+    type: DfComponentPropTypeEnum.select,
     label,
     defaultValue,
     tips,
@@ -190,19 +190,19 @@ export type DfTableOption = {
   showKey: string;
 };
 
-interface EditorTableProp {
+interface DfTableProp {
   label: string;
   option: DfTableOption;
   defaultValue?: { label: string; value: string }[];
 }
 
-export function createEditorTableProp({
+export function createDfTableProp({
   label,
   option,
   defaultValue,
-}: EditorTableProp): DfComponentBaseProps {
+}: DfTableProp): DfComponentBaseProps {
   return {
-    type: DfComponentTypeEnum.table,
+    type: DfComponentPropTypeEnum.table,
     label,
     table: option,
     defaultValue,
@@ -227,7 +227,7 @@ export function createDfCrossSortableProp({
   defaultValue,
 }: DfCrossSortableProp): DfComponentBaseProps {
   return {
-    type: DfComponentTypeEnum.crossSortable,
+    type: DfComponentPropTypeEnum.crossSortable,
     label,
     multiple,
     showItemPropsConfig,

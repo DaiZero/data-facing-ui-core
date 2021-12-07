@@ -1,6 +1,6 @@
 import type { DfBaseComponent } from '../../composables/base-component'
-import { createFieldProps } from './createFieldProps'
-import { useGlobalProperties } from '@/hooks/useGlobalProperties'
+import { createFieldProps } from './input'
+import { useGlobalProperties } from '../../hooks/useGlobalProperties'
 
 export default {
   key: 'input',
@@ -12,7 +12,7 @@ export default {
   render: ({ styles, block, props }) => {
     const { registerRef } = useGlobalProperties()
 
-    let rules = []
+    let rules: never[] = []
     try {
       rules = JSON.parse(props.rules)
     } catch (e) {}
@@ -20,7 +20,7 @@ export default {
     return () => (
       <div style={styles}>
         <el-input
-          ref={(el) => registerRef(el, block._vid)}
+          ref={(el: any) => registerRef(el, block._vid)}
           {...props}
           v-model={props.modelValue}
           name={Array.isArray(props.name) ? [...props.name].pop() : props.name}
