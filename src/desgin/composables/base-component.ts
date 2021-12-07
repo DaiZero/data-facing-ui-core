@@ -1,6 +1,9 @@
 import type { DfComponentBaseProps } from './base-props'
 import type { CSSProperties } from 'vue'
 import { Action } from './action'
+import {getuuid} from "../common/utils"
+import {useDotProp} from "./use-dot-prop"
+import {isValidKey} from "../common/is"
 
 
 // 组件模块
@@ -79,4 +82,39 @@ export interface DfBaseComponent {
   events?: { label: string; value: string }[]
   /** 组件样式 */
   styles?: CSSProperties
+}
+
+export function createNewBlock(component: DfBaseComponent): DfComponentData {
+      
+  return {
+    _vid: `vid_${getuuid()}`,
+    moduleName: component.moduleName,
+    componentKey: component!.key,
+    label: component!.label,
+    adjustPosition: true,
+    focus: false,
+    styles: {
+      display: 'flex',
+      justifyContent: 'flex-start',
+      paddingTop: '0',
+      paddingRight: '0',
+      paddingLeft: '0',
+      paddingBottom: '0',
+      tempPadding: '0'
+    },
+    hasResize: false,
+    props: Object.keys(component.props || {}).reduce((prev, curr) => {
+      const { propObj, prop } = useDotProp(prev, curr)
+      if (component.props![curr]?.defaultValue) {        
+        propObj[prop] = prev[curr] = component.props![curr]?.defaultValue
+      }
+      return prev
+    }, {}),
+    draggable: component.draggable ?? true, // 是否可以拖拽
+    showStyleConfig: component.showStyleConfig ?? true, // 是否显示组件样式配置
+    animations: [], // 动画集
+    actions: [], // 动作集合
+    events: component.events || [], // 事件集合
+    model: {}
+  }
 }
