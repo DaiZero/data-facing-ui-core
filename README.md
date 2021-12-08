@@ -1,6 +1,7 @@
 # data-facing-ui-core
 
-> generated from [alvarosaburido/vitesome](https://github.com/alvarosaburido/vitesome)
+> - 框架最初模板： [alvarosaburido/vitesome](https://github.com/alvarosaburido/vitesome)
+> - 架构代码借鉴： [buqiyuan/vite-vue3-lowcode](https://github.com/buqiyuan/vite-vue3-lowcode)
 
 ## 简介
 
