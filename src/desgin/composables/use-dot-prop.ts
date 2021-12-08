@@ -1,6 +1,6 @@
 /**
  * useDotProp
- * @param originObj 
+ * @param originObj 原对象
  * @param propName 属性名称
  * @returns 
  */

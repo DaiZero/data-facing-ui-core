@@ -17,10 +17,7 @@
         />
       </transition>
     </div>
-
-    <HelloWorld :msg="t('hello') + ' 👋 !!'" />
-    <DfButton :message="1111"></DfButton>
-
+<Design></Design>
     <footer class="text-center">
       <ul class="flex justify-between w-1/3 mx-auto mb-8">
         <li class="cursor-pointer text-2xl">
@@ -78,6 +75,7 @@ import { useTheme } from '/@/composables';
 
 export default defineComponent({
   name: 'Home',
+  components:{},
   setup() {
     const { t, availableLocales, locale } = useI18n();
 

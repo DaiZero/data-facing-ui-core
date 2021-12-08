@@ -1,25 +1,23 @@
 import type { DfComponentBaseProps } from './base-props'
 import type { CSSProperties } from 'vue'
 import { Action } from './action'
-import {getuuid} from "../common/utils"
-import {useDotProp} from "./use-dot-prop"
-import {isValidKey} from "../common/is"
-
+import { getuuid } from '../common/utils'
+import { useDotProp } from './use-dot-prop'
 
 // 组件模块
 export interface ComponentModules {
   // 基础组件
   baseWidgets: DfBaseComponent[]
   // 容器组件
-  containerComponents: DfBaseComponent[] 
+  containerComponents: DfBaseComponent[]
 }
 
 /**
  * @description 组件属性
  */
- export interface DfComponentData {
+export interface DfComponentData {
   /** 组件id 时间戳, 组件唯一标识 */
-  _vid: string
+  _uid: string
   /** 组件所属的模块（基础组件、容器组件） */
   moduleName: keyof ComponentModules
   /** 映射 VisualEditorConfig 中 componentMap 的 component对象 */
@@ -52,12 +50,13 @@ export interface ComponentModules {
 }
 
 export interface DfBaseComponent {
+  /** 组件唯一id */
+  _uid?: string
   /** 组件name */
   key: string
   /** 组件所属模块名称 */
   moduleName: keyof ComponentModules
-  /** 组件唯一id */
-  _vid?: string
+
   /** 组件中文名称 */
   label: string
   /** 组件预览函数 */
@@ -84,13 +83,19 @@ export interface DfBaseComponent {
   styles?: CSSProperties
 }
 
-export function createNewBlock(component: DfBaseComponent): DfComponentData {
-      
+/**
+ * 
+ * @param comp 组件
+ * @returns 组件数据
+ */
+export function createNewDfComponentData(
+  comp: DfBaseComponent,
+): DfComponentData {
   return {
-    _vid: `vid_${getuuid()}`,
-    moduleName: component.moduleName,
-    componentKey: component!.key,
-    label: component!.label,
+    _uid: `uid_${getuuid()}`,
+    moduleName: comp.moduleName,
+    componentKey: comp!.key,
+    label: comp!.label,
     adjustPosition: true,
     focus: false,
     styles: {
@@ -100,21 +105,21 @@ export function createNewBlock(component: DfBaseComponent): DfComponentData {
       paddingRight: '0',
       paddingLeft: '0',
       paddingBottom: '0',
-      tempPadding: '0'
+      tempPadding: '0',
     },
     hasResize: false,
-    props: Object.keys(component.props || {}).reduce((prev, curr) => {
+    props: Object.keys(comp.props || {}).reduce((prev, curr) => {
       const { propObj, prop } = useDotProp(prev, curr)
-      if (component.props![curr]?.defaultValue) {        
-        propObj[prop] = prev[curr] = component.props![curr]?.defaultValue
+      if (comp.props![curr]?.defaultValue) {
+        propObj[prop] = prev[curr] = comp.props![curr]?.defaultValue
       }
       return prev
     }, {}),
-    draggable: component.draggable ?? true, // 是否可以拖拽
-    showStyleConfig: component.showStyleConfig ?? true, // 是否显示组件样式配置
+    draggable: comp.draggable ?? true, // 是否可以拖拽
+    showStyleConfig: comp.showStyleConfig ?? true, // 是否显示组件样式配置
     animations: [], // 动画集
     actions: [], // 动作集合
-    events: component.events || [], // 事件集合
-    model: {}
+    events: comp.events || [], // 事件集合
+    model: {},
   }
 }

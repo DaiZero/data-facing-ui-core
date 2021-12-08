@@ -30,3 +30,4 @@ export const createFieldProps = () => ({
   required: createDfSwitchProp({ label: '是否显示表单必填星号' }),
   rules: createDfInputProp({ label: '表单校验规则' }),
 });
+
