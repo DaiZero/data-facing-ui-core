@@ -72,10 +72,10 @@ import { useI18n } from 'vue-i18n';
 
 import { defineComponent, ref } from 'vue';
 import { useTheme } from '/@/composables';
-
+import {Design} from '../desgin/index.vue'
 export default defineComponent({
   name: 'Home',
-  components:{},
+  components:{Design},
   setup() {
     const { t, availableLocales, locale } = useI18n();
 
