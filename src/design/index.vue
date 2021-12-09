@@ -10,7 +10,7 @@
   <el-row>
     <el-col :span="6">
       <div class="grid-content bg-purple">
-        <design-left-side></design-left-side>
+        <tool-left-side></tool-left-side>
       </div>
     </el-col>
     <el-col :span="12">
@@ -20,7 +20,7 @@
     </el-col>
     <el-col :span="6">
       <div class="grid-content bg-purple-light">
-        <design-left-side></design-left-side>
+        <tool-right-side></tool-right-side>
       </div>
     </el-col>
   </el-row>
@@ -30,12 +30,12 @@
 import { defineComponent } from 'vue'
 import DfPage from "./pages/index.vue"
 import DesignHeader from "./components/design-header/index.vue"
-import DesignLeftSide from "./components/design-left-side/design-left-side.vue"
-import DesignRightSide from "./components/design-right-side/design-right-side.vue"
+import ToolLeftSide from "./components/tool-left-side/index.vue"
+import ToolRightSide from "./components/tool-right-side/index.vue"
 
 export default defineComponent({
   name: 'Design',
-  components:{DfPage,DesignHeader,DesignLeftSide,DesignRightSide},
+  components:{DfPage,DesignHeader,ToolLeftSide,ToolRightSide},
   setup() {
   },
 })
