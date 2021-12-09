@@ -1,14 +1,11 @@
 <template>
-<div>
     <div class="design-header">
         <div class="design-header__logo">
-            <img src="https://www.gravatar.com/avatar/{{ md5(config('app.email')) }}?s=200" alt="{{ config('app.name') }}" />
         </div>
         <div class="design-header__title">
-            <h1>{{ config('app.name') }}</h1>
+            <h1>设计头啊啊啊啊</h1>
         </div>
     </div>
-</div>
 </template>
 
 <script lang="ts">

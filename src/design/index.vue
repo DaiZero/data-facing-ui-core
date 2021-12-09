@@ -3,24 +3,24 @@
 <el-row>
     <el-col :span="24">
       <div class="grid-content bg-purple-dark">
-          <DesignHeader></DesignHeader>
+          <design-header></design-header>
       </div>
     </el-col>
   </el-row>
   <el-row>
     <el-col :span="6">
       <div class="grid-content bg-purple">
-        <DesignLeftSide></DesignLeftSide>
+        <design-left-side></design-left-side>
       </div>
     </el-col>
     <el-col :span="12">
       <div class="grid-content bg-purple-light">
-      <DfPage></DfPage>
+      <df-page></df-page>
       </div>
     </el-col>
     <el-col :span="6">
       <div class="grid-content bg-purple-light">
-        <DesignRightSide></DesignRightSide>
+        <design-left-side></design-left-side>
       </div>
     </el-col>
   </el-row>
@@ -29,15 +29,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import DfPage from "./pages/index.vue"
-import DesignRightSide from "./components/design-right-side/Index.vue"
-import DesignLeftSide from "./components/design-left-side/Index.vue"
-import DesignHeader from "./components/design/Index.vue"
+import DesignHeader from "./components/design-header/index.vue"
+import DesignLeftSide from "./components/design-left-side/design-left-side.vue"
+import DesignRightSide from "./components/design-right-side/design-right-side.vue"
 
 export default defineComponent({
   name: 'Design',
-  components:{DfPage,DesignRightSide,DesignLeftSide,DesignHeader},
+  components:{DfPage,DesignHeader,DesignLeftSide,DesignRightSide},
   setup() {
-    
   },
 })
 </script>

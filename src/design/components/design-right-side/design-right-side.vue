@@ -14,10 +14,9 @@ import { defineComponent} from 'vue'
 
 export default defineComponent({
   name: 'DesignRightSide',
-      setup() {
-        return {
-        }
-    }
+  setup() {
+    return {};
+  },
 })
 </script>
 

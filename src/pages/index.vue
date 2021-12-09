@@ -1,6 +1,6 @@
 <template>
   <div class="container max-w-3xl mx-auto mt-60">
-    <div class="h-60 mb-8">
+    <!-- <div class="h-60 mb-8">
       <transition
         enter-active-class="transition ease-out duration-1000 transform"
         enter-from-class="-translate-x-100 opacity-0"
@@ -16,10 +16,10 @@
           :src="'logotype.svg'"
         />
       </transition>
-    </div>
-<Design></Design>
+    </div> -->
+    <Design></Design>
     <footer class="text-center">
-      <ul class="flex justify-between w-1/3 mx-auto mb-8">
+      <!-- <ul class="flex justify-between w-1/3 mx-auto mb-8">
         <li class="cursor-pointer text-2xl">
           <a
             href="#"
@@ -51,16 +51,16 @@
             <i class="iconify" :data-icon="'mdi:github'" />
           </a>
         </li>
-      </ul>
+      </ul> -->
 
       <span class="text-xs"
         >{{ t('made_by') }}
         <a
           class="footer-link text-cyan-400 hover:text-cyan-500"
-          href="https://github.com/alvarosaburido"
+          href="https://github.com/DaiZero"
           rel="noreferrer"
           target="_blank"
-          >Alvaro Saburido</a
+          >Zero Dai</a
         ></span
       >
     </footer>
@@ -72,7 +72,7 @@ import { useI18n } from 'vue-i18n';
 
 import { defineComponent, ref } from 'vue';
 import { useTheme } from '/@/composables';
-import {Design} from '../desgin/index.vue'
+import Design from '../design/index.vue'
 export default defineComponent({
   name: 'Home',
   components:{Design},
