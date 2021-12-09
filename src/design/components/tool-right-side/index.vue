@@ -1,5 +1,7 @@
 <template>
-  <div>right</div>
+  <div class="tool-right-side">
+    右工具栏，页面、组件属性等
+  </div>
 </template>
 
 <script lang="ts">
@@ -15,5 +17,8 @@ export default defineComponent({
 
 
 <style>
-
+.tool-right-side{
+  background-color: rgb(16, 233, 124);
+  height: 100%;
+}
 </style>

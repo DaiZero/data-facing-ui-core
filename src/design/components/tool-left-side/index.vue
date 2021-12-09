@@ -1,5 +1,7 @@
 <template>
-  <div>left</div>
+  <div class="tool-left-side" >
+    左工具栏：组件视图树，
+  </div>
 </template>
 
 <script lang="ts">
@@ -15,5 +17,8 @@ export default defineComponent({
 
 
 <style>
-
+.tool-left-side {
+  background-color: rgb(191, 219, 87);
+  height: 100%;
+}
 </style>

@@ -1,5 +1,7 @@
 <template>
-  <div>DfPage</div>
+  <div class="df-page">
+    Page 设计区域
+  </div>
 </template>
 
 <script lang="ts">
@@ -13,5 +15,8 @@ export default defineComponent({
 })
 </script>
 <style>
-
+.df-page {
+  background-color: aqua;
+  height: 100%;
+}
 </style>

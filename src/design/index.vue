@@ -1,15 +1,20 @@
 <template>
-<div style="width=1000px;height=800px;">
-    <el-container>
-      <el-header>
+<div>
+    <el-container height="100%">
+      <el-header height="500px" class="flex items-center shadow-md">
         <tool-header></tool-header>
       </el-header>
-      <el-container>
-        <el-aside width="200px">
+      <el-container style="display:flex;height:100%;" >
+        <el-aside style="width:200px;height:100%;" >
           <tool-left-side></tool-left-side>
         </el-aside>
-        <el-main><df-page></df-page></el-main>
-        <tool-right-side></tool-right-side>
+        <el-main style="width:-webkit-fill-available;height:100%;">
+          <df-page></df-page>
+        </el-main>
+        <el-aside style="width:200px;height:100%;" >
+          <tool-right-side>
+          </tool-right-side>
+         </el-aside>
       </el-container>
     </el-container>
 </div>
@@ -28,27 +33,27 @@ export default defineComponent({
   },
 })
 </script>
-<style scoped>
+<style>
 .el-header,
 .el-footer {
   background-color: #b3c0d1;
   color: var(--el-text-color-primary);
   text-align: center;
-  line-height: 60px;
+  /* line-height: 60px; */
 }
 
 .el-aside {
   background-color: #d3dce6;
   color: var(--el-text-color-primary);
   text-align: center;
-  line-height: 200px;
+  /* line-height: 200px; */
 }
 
 .el-main {
   background-color: #e9eef3;
   color: var(--el-text-color-primary);
   text-align: center;
-  line-height: 160px;
+  /* line-height: 160px; */
 }
 
 body > .el-container {
@@ -57,10 +62,10 @@ body > .el-container {
 
 .el-container:nth-child(5) .el-aside,
 .el-container:nth-child(6) .el-aside {
-  line-height: 260px;
+  /* line-height: 260px; */
 }
 
 .el-container:nth-child(7) .el-aside {
-  line-height: 320px;
+  /* line-height: 320px; */
 }
 </style>
