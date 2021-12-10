@@ -1,10 +1,10 @@
 <template>
 <div>
-    <el-container height="100%">
-      <el-header height="500px" class="flex items-center shadow-md">
-        <tool-header></tool-header>
+    <el-container style="height: 100%;" >
+      <el-header class="flex items-center shadow-md">
+        <tool-header> </tool-header>
       </el-header>
-      <el-container style="display:flex;height:100%;" >
+      <el-container style="display:flex;height:calc(100vh - 40px);" >
         <el-aside style="width:200px;height:100%;" >
           <tool-left-side></tool-left-side>
         </el-aside>
@@ -15,7 +15,7 @@
           <tool-right-side>
           </tool-right-side>
          </el-aside>
-      </el-container>
+         </el-container>
     </el-container>
 </div>
 </template>
@@ -29,8 +29,7 @@ import ToolRightSide from "./components/tool-right-side/index.vue"
 export default defineComponent({
   name: 'Design',
   components:{DfPage,ToolHeader,ToolLeftSide,ToolRightSide},
-  setup() {
-  },
+  setup() {},
 })
 </script>
 <style>

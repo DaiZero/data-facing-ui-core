@@ -6,9 +6,7 @@
 
 <script lang="ts">
 import { useI18n } from 'vue-i18n';
-
 import { defineComponent, ref } from 'vue';
-import { useTheme } from '/@/composables';
 import Design from '../design/index.vue'
 export default defineComponent({
   name: 'Home',
@@ -21,16 +19,13 @@ export default defineComponent({
       locale.value =
         locales[(locales.indexOf(locale.value) + 1) % locales.length];
     };
-
-    const { isDark, toggleDark } = useTheme();
-
     const show = ref(false);
 
     setTimeout(() => {
       show.value = true;
     }, 1000);
 
-    return { locale, t, show, toggleLocales, isDark, toggleDark };
+    return { locale, t, show, toggleLocales};
   },
 });
 </script>
