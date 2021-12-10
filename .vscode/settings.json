@@ -13,5 +13,26 @@
   "files.associations": {
     "*.json": "jsonc",
     ".prettierrc": "jsonc"
-  }
+  },
+  "eslint.options": {
+    "extensions": [
+      ".js",
+      ".vue"
+    ]
+  },
+  "editor.formatOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    "html",
+    "vue"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.codeAction.disableRuleComment": {},
+  "eslint.alwaysShowStatus": true,
 }
