@@ -7,6 +7,7 @@ import ViteComponents from 'vite-plugin-components';
 import PurgeIcons from 'vite-plugin-purge-icons';
 import ViteFonts from 'vite-plugin-fonts';
 import svgLoader from 'vite-svg-loader';
+import Inspect from 'vite-plugin-inspect';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -47,5 +48,6 @@ export default defineConfig({
     VueI18n({
       include: [path.resolve(__dirname, './locales/**')],
     }),
+    Inspect(),
   ],
 });
