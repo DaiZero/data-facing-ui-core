@@ -1,24 +1,33 @@
 <template>
   <div class="tool-left-side" >
-    左工具栏：组件视图树，
+    <div class="tool-left-side-comps">
+     1
+    </div>
+    <div class="tool-left-side-comp-tree" style="position: relative;">
+      <div style="position: absolute;height: 40px;outline:1px solid rebeccapurple"
+      draggable="true"
+      >
+         qqqq222222
+      </div>
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
+ //import draggable from 'vuedraggable'
+ //import VueDragResize from 'vue-drag-resize'
 
-export default defineComponent({
-  name:"ToolLeftSide",
-  setup() {
-    
-  },
-})
 </script>
-
-
 <style>
 .tool-left-side {
-  background-color: rgb(191, 219, 87);
   height: 100%;
+}
+.tool-left-side-comps{
+  background-color: rgb(191, 219, 87);
+  height: 50%;
+}
+.tool-left-side-comp-tree{
+  background-color:rgb(90, 179, 208);
+  height: 50%;
 }
 </style>
