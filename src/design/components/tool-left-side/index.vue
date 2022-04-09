@@ -4,19 +4,33 @@
      1
     </div>
     <div class="tool-left-side-comp-tree" style="position: relative;">
-      <div style="position: absolute;height: 40px;outline:1px solid rebeccapurple"
-      draggable="true"
+      <div v-for="comp in compList" :key="comp.name" 
+      style="margin-bottom: 1vh; height:40px;width:100px;outline:1px solid rebeccapurple"
+      draggable="true" @mousedown="(e)=>onWidgetMouseDown(e,comp)"
       >
-         qqqq222222
+         {{comp.name}}
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
- //import draggable from 'vuedraggable'
- //import VueDragResize from 'vue-drag-resize'
+import { reactive } from 'vue';
+import { useDragCompStore } from '../../store/compDrag'
 
+const compList:any[]=reactive([]);
+compList.push({name:"组件001"})
+compList.push({name:"组件002"})
+compList.push({name:"组件003"})
+const onWidgetMouseDown=(e:MouseEvent,comp:any)=>{
+  const {dragComp}:any=useDragCompStore()
+  dragComp.name=comp.name
+  dragComp.x=e.offsetX
+  dragComp.y=e.offsetY
+  //dragCompStore.setComp(comp)
+  console.log(e.offsetX,e.offsetY)
+  console.log(comp)
+}
 </script>
 <style>
 .tool-left-side {

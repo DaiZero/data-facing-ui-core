@@ -10,12 +10,15 @@ import { Router } from '/@/router';
 
 // i18n
 import messages from '@intlify/vite-plugin-vue-i18n/messages';
+import{createPinia} from 'pinia'
 
 // WindiCSS
 import 'virtual:windi.css';
 import 'virtual:windi-devtools';
 
 const app = createApp(App);
+const pinia = createPinia()
+app.use(pinia)
 
 //
 const i18n = createI18n({

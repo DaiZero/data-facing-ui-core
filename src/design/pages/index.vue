@@ -2,10 +2,10 @@
   <div class="df-page" @dragover="e=>e.preventDefault()"   @drop="onDrop">
         <vue-drag-resize class="df-page-comp-box" v-for="item in compList" :key="item.id" 
         :style="`transform:translate(${item.x}px,${item.y}px)`"
-        :w="200" :h="200"
+        :w="100" :h="100"
         draggable="true"
         >
-           {{item.id}}
+           {{item.id}}-{{item.name}}
         </vue-drag-resize>
   </div>
 </template>
@@ -13,17 +13,19 @@
 <script lang="ts" setup>
 import { reactive } from 'vue';
 import VueDragResize from 'vue-drag-resize'
+import { useDragCompStore } from '../store/compDrag'
+
 let i:number=0;
 const compList:any[]=reactive([])
 const onDrop=(e:DragEvent)=>{
-  if (e instanceof DragEvent) {
-    console.log("this is drag event");
-  }
+const {dragComp}:any=useDragCompStore()
+console.log(dragComp);
 compList.push(
   {
   id:i++,
-  x:e.offsetX,
-  y:e.offsetY
+  name:dragComp.name,
+  x:e.offsetX-dragComp.x,
+  y:e.offsetY-dragComp.y,
   })
 }
 </script>
@@ -35,7 +37,6 @@ compList.push(
 }
 .df-page-comp-box{
   position: absolute;
-  height: 40px;
   outline:1px solid rebeccapurple
 }
 </style>
