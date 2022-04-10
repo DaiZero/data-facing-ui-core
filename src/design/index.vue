@@ -2,35 +2,29 @@
 <div>
     <el-container style="height: 100%;" >
       <el-header class="flex items-center shadow-md">
-        <tool-header> </tool-header>
+        <tool-header />
       </el-header>
       <el-container style="display:flex;height:calc(100vh - 40px);" >
         <el-aside style="width:200px;height:100%;" >
-          <tool-left-side></tool-left-side>
+          <tool-widget-list style="height:50%" />
+          <tool-widget-tree style="height:50%" />
         </el-aside>
         <el-main style="width:-webkit-fill-available;height:100%;">
-          <df-page></df-page>
+          <df-page />
         </el-main>
         <el-aside style="width:200px;height:100%;" >
-          <tool-right-side>
-          </tool-right-side>
-         </el-aside>
-         </el-container>
+          <tool-widget-prop />
+        </el-aside>
+      </el-container>
     </el-container>
 </div>
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import DfPage from "./pages/index.vue"
 import ToolHeader from "./components/tool-header/index.vue"
-import ToolLeftSide from "./components/tool-left-side/index.vue"
-import ToolRightSide from "./components/tool-right-side/index.vue"
-
-export default defineComponent({
-  name: 'Design',
-  components:{DfPage,ToolHeader,ToolLeftSide,ToolRightSide},
-  setup() {},
-})
+import ToolWidgetList from "./components/tool-widget-list/index.vue"
+import ToolWidgetProp from "./components/tool-widget-prop/index.vue"
+import ToolWidgetTree from "./components/tool-widget-tree/index.vue"
 </script>
 <style>
 .el-header,
@@ -57,14 +51,5 @@ export default defineComponent({
 
 body > .el-container {
   margin-bottom: 40px;
-}
-
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  /* line-height: 260px; */
-}
-
-.el-container:nth-child(7) .el-aside {
-  /* line-height: 320px; */
 }
 </style>
